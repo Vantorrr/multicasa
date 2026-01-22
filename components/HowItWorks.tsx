@@ -1,4 +1,4 @@
-import { MapPin, ArrowUpRight } from 'lucide-react';
+import { MapPin, ArrowUpRight, Calculator, HandCoins } from 'lucide-react';
 
 export default function HowItWorks() {
   return (
@@ -19,12 +19,10 @@ export default function HowItWorks() {
           </div>
           <div className="flex items-end justify-between">
              <div className="bg-[#F5F5F7] px-3 py-1 rounded-lg font-bold text-gray-400">01</div>
-             {/* 3D Tiger Illustration */}
-             <img 
-               src="https://cdn3d.iconscout.com/3d/premium/thumb/tiger-5499268-4589255.png" 
-               alt="Tiger 3D" 
-               className="w-32 h-32 object-contain -mr-4 -mb-4 filter drop-shadow-lg"
-             />
+             {/* Stylish SVG Icon */}
+             <div className="w-24 h-24 bg-[#FFF8E7] rounded-full flex items-center justify-center -mr-4 -mb-4">
+                <Calculator className="w-12 h-12 text-[#D4B483]" strokeWidth={1.5} />
+             </div>
           </div>
         </div>
 
@@ -40,12 +38,10 @@ export default function HowItWorks() {
           </div>
           <div className="flex items-end justify-between">
              <div className="bg-[#F5F5F7] px-3 py-1 rounded-lg font-bold text-gray-400">02</div>
-             {/* 3D Handshake/Tiger Illustration */}
-             <img 
-               src="https://cdn3d.iconscout.com/3d/premium/thumb/tiger-holding-money-5499276-4589263.png" 
-               alt="Tiger Paying" 
-               className="w-32 h-32 object-contain -mr-4 -mb-4 filter drop-shadow-lg"
-             />
+             {/* Stylish SVG Icon */}
+             <div className="w-24 h-24 bg-[#FFF8E7] rounded-full flex items-center justify-center -mr-4 -mb-4">
+                <HandCoins className="w-12 h-12 text-[#D4B483]" strokeWidth={1.5} />
+             </div>
           </div>
         </div>
 

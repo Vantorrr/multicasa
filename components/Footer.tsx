@@ -28,7 +28,7 @@ export default function Footer() {
         </div>
 
         <div className="text-center text-gray-400 text-sm border-t border-gray-200 pt-8">
-          <p className="mb-2">© 2024 MultiKassa. Все права защищены.</p>
+          <p className="mb-2">© 2026 MultiKassa. Все права защищены.</p>
           <div className="flex justify-center flex-wrap gap-4 text-xs">
             <a href="#" className="hover:text-gray-600">Политика конфиденциальности</a>
             <a href="#" className="hover:text-gray-600">Пользовательское соглашение</a>
