@@ -1,26 +1,34 @@
 @import "tailwindcss";
 
+@theme {
+  --color-gold: #C6A672;
+  --color-gold-hover: #B59561;
+  --color-background: #F5F5F7;
+  --font-inter: var(--font-inter);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 245, 245, 247;
+  --background-end-rgb: 245, 245, 247;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: var(--color-background);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Custom Utilities if needed, though v4 handles most via classes */
+.text-gold {
+  color: var(--color-gold);
+}
+.bg-gold {
+  background-color: var(--color-gold);
+}
+.border-gold {
+  border-color: var(--color-gold);
+}
+.hover\:bg-gold-hover:hover {
+  background-color: var(--color-gold-hover);
 }
