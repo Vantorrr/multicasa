@@ -6,6 +6,8 @@ import OfficeSection from '@/components/OfficeSection';
 import WhyUs from '@/components/WhyUs';
 import Services from '@/components/Services';
 import CtaSection from '@/components/CtaSection';
+import FaqSection from '@/components/FaqSection';
+import SeoSection from '@/components/SeoSection';
 
 export default function Home() {
   return (
@@ -36,6 +38,16 @@ export default function Home() {
              {/* Office Section */}
              <div className="max-w-6xl mx-auto">
                <OfficeSection />
+            </div>
+            
+            {/* FAQ Section */}
+            <div className="max-w-4xl mx-auto">
+               <FaqSection />
+            </div>
+
+            {/* SEO Text Section */}
+            <div className="max-w-6xl mx-auto px-4">
+               <SeoSection />
             </div>
 
             {/* CTA / Schedule */}
