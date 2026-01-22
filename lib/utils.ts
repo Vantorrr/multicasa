@@ -13,7 +13,8 @@ export const getExtendedCurrencies = (currencies: Currency[]): Currency[] => {
              id: `${curr.id}_${city.id}`,
              cityId: city.id,
              cityName: city.name,
-             // Override display name if needed, but UI handles it
+             // Add nameIn for proper display (e.g. "в Москве")
+             nameIn: city.nameIn,
           });
        });
     } else {

@@ -11,6 +11,8 @@ function StatusPageContent() {
   const city = searchParams.get('city') || 'Новосибирск';
   
   const [timeLeft, setTimeLeft] = useState(1768); // ~29:28
+  const [meetingDate, setMeetingDate] = useState('');
+  const [meetingTime, setMeetingTime] = useState('');
 
   // Timer logic
   useEffect(() => {
@@ -18,6 +20,21 @@ function StatusPageContent() {
       setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
     }, 1000);
     return () => clearInterval(timer);
+  }, []);
+
+  // Calculate dynamic future date
+  useEffect(() => {
+      const now = new Date();
+      // Add 2 days
+      const future = new Date(now.getTime() + 2 * 24 * 60 * 60 * 1000);
+      // Add 2 hours approx
+      future.setHours(now.getHours() + 2);
+      
+      const dateStr = future.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' });
+      const timeStr = future.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+      
+      setMeetingDate(dateStr);
+      setMeetingTime(timeStr);
   }, []);
 
   const formatTime = (seconds: number) => {
@@ -86,9 +103,9 @@ function StatusPageContent() {
                 <div className="bg-[#F5F5F7] p-3 rounded-xl flex items-center justify-between">
                     <span className="text-gray-500 font-medium">Дата и время встречи</span>
                     <div className="flex items-center gap-2 font-bold bg-white px-2 py-1 rounded-lg shadow-sm">
-                        <span>17.01.2026</span>
+                        <span>{meetingDate}</span>
                         <Clock className="w-3 h-3 text-gray-400" />
-                        <span>16:32</span>
+                        <span>{meetingTime}</span>
                     </div>
                 </div>
 

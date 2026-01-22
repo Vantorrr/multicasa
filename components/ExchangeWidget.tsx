@@ -24,8 +24,14 @@ export default function ExchangeWidget() {
   const [activeSelector, setActiveSelector] = useState<'give' | 'get' | null>(null);
 
   // Determine effective city for the deal (from either give or get currency)
-  const effectiveCityName = useMemo(() => {
-      return giveCurrency.cityName || getCurrency.cityName || 'Москва';
+  const effectiveCityNameIn = useMemo(() => {
+      // Prioritize "nameIn" if available (e.g. "в Москве")
+      const curr = giveCurrency.cityName ? giveCurrency : getCurrency;
+      if (curr.type === 'cash' && curr.cityId) {
+          const city = CITIES.find(c => c.id === curr.cityId);
+          return city ? `в ${city.nameIn}` : '';
+      }
+      return '';
   }, [giveCurrency, getCurrency]);
 
   // Mock rate calculation logic
@@ -103,7 +109,7 @@ export default function ExchangeWidget() {
       <h1 className="text-3xl sm:text-4xl font-bold leading-tight px-4">
         Обмен <span className="text-[#D4B483]">{giveCurrency.code}</span> <br />
         на <span className="text-[#D4B483]">{getCurrency.code}</span> <br />
-        {effectiveCityName && <span>в {effectiveCityName}</span>}
+        {effectiveCityNameIn}
       </h1>
 
       {/* Give Card */}
